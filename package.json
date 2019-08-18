@@ -1,0 +1,8 @@
+{
+  "name": "file-structure-chart",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.1"
+  }
+}
