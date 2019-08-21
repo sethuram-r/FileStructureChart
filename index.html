@@ -17,13 +17,12 @@
 
 </style>
 <body>
-<div class="file-tree"  ></div>
+<div class="file-tree"></div>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script>
 
 
-
-  function treeList(){
+  function treeList() {
     let margin = {top: 30, right: 20, bottom: 30, left: 30};
     let width = 1000;
     let barHeight = 20;
@@ -33,7 +32,7 @@
       .duration(duration)
       .ease(d3.easeLinear);
 
-    function chart(selection){
+    function chart(selection) {
 
       const data = selection.datum();
 
@@ -46,7 +45,7 @@
 
       svg.append("g")
         .attr("width", width)
-        .attr("transform",`translate(${margin.left}, ${margin.top})`);
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
       svg = svg.merge(svg);
       let root = d3.hierarchy(data);
@@ -76,7 +75,7 @@
 
         var nodeEnter = node.enter().append("g")
           .attr("class", "node")
-          .attr("transform",`translate(${source.y0}, ${source.x0})`)
+          .attr("transform", `translate(${source.y0}, ${source.x0})`)
           .on("click", click);
 
         // adding arrows
@@ -136,6 +135,7 @@
           d.y0 = d.y;
         });
       }
+
       // Toggle children on click.
       function click(d) {
         if (d.children) {
@@ -149,10 +149,11 @@
         update(d);
       }
     }
-    chart.width = function(_) {
+
+    chart.width = function (_) {
       return arguments.length ? ((width = _) , chart) : width;
     };
-    chart.margin = function(_) {
+    chart.margin = function (_) {
       return arguments.length ? ((margin = _) , chart) : margin;
     };
     return chart
@@ -162,7 +163,6 @@
   d3.json("data/flare.json").then(flare => {
     d3.select(".file-tree").datum(flare).call(sample);
   });
-
 
 
 </script>
